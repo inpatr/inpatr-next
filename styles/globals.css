@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .g-border {
+    border-right: #93cbff solid 4px;
+  }
+  .bubbly {
+    background: linear-gradient(
+      244.09deg,
+      rgba(147, 203, 255, 0.82) 18.78%,
+      rgba(183, 220, 236, 0) 81.22%
+    );
+  }
+  .g-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+nav > li {
+  @apply py-8 px-2 list-none text-center text-xl;
+}
+
+/*--------
+  FCKN TW
+  -------*/
+* {
+  color: aliceblue;
+  font-family: 'Sen', sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap');
+}
