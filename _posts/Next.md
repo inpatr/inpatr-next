@@ -1,14 +1,3 @@
----
-title: 'Next'
-author: 'Inga feat. Dan'
-date: '06./07.03.2022'
-image: 'img/next.jpeg'
-tags:
-  - javascript
-  - framework
-  - react
----
-
 # Next
 
 framework for react

@@ -13,9 +13,9 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        halfbubble: "url('/public/img/subtractedbubble.svg')",
-        tinydevil: "url('/public/img/deviltiny.svg')",
-        devil: "url('/public/img/devil.svg')",
+        halfbubble: "url('../public/img/subtractedbubble.svg')",
+        tinydevil: "url('../public/img/deviltiny.svg')",
+        devil: "url('../public/img/devil.svg')",
       },
       spacing: {
         128: '32rem',

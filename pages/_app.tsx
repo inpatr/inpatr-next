@@ -1,6 +1,8 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
+import '../i18n.js'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

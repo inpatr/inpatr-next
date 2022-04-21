@@ -1,13 +1,3 @@
----
-title: 'React'
-author: 'Inga feat. Dan'
-date: 'xx.xx.2022'
-image: 'img/react.jpeg'
-tags:
-  - javascript
-  - library
----
-
 # React
 
 ## History & Intro

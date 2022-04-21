@@ -1,25 +1,63 @@
 import Link from 'next/link'
 import type { NextPage } from 'next'
+import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
 
+// function LanguagePicker() {
+//   const { i18n } = useTranslation()
+//   const changeLanguage = (lang: string) => {
+//     i18n.changeLanguage(lang)
+//   }
+//   return (
+//     <div className="flex bg-lightblue">
+//       <button onClick={() => changeLanguage('de')}>german bitcheeeees</button>
+//     </div>
+//   )
+// }
 const Home: NextPage = () => {
+  const router = useRouter()
+  const { pathname, asPath, query } = router
+  const { t } = useTranslation()
+  const { i18n } = useTranslation()
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang)
+    router.push({ pathname, query }, asPath, { locale: lang })
+  }
+
   return (
     <div className="bg-altrose space-y-5 lg:space-y-2 grid lg:grid-cols-5 lg:grid-rows-2">
+      <Head>
+        <title>{t('home:head.title')}</title>
+        <meta http-equiv="Content-Type" content="text/html, charset=utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <meta name="author" content="Inga Traub" />
+        <meta name="description" content="portfolio" />
+        <meta name="keywords" content={t('home:head.keywords')} />
+      </Head>
+      <div className="space-x-1">
+        <button
+          className="border-2 border-darkaltrose bg-lightaltrose text-darkaltrose hover:bg-lightblue hover:text-lightaltrose p-4 rounded-md"
+          onClick={() => changeLanguage('de')}
+        >
+          german
+        </button>
+        <button
+          className="border-2 border-darkaltrose bg-lightaltrose text-darkaltrose hover:bg-lightblue hover:text-lightaltrose p-4 rounded-md"
+          onClick={() => changeLanguage('en')}
+        >
+          english
+        </button>
+      </div>
       {/*hero mobile*/}
       <section className="flex flex-col my-5 p-4 h-[715px] bg-halfbubble bg-no-repeat lg:hidden">
         <div className="flex flex-col">
-          <h1 className="flex text-4xl m-6">hello</h1>
+          <h1 className="flex text-4xl m-6">{t('landing:header')}</h1>
           <div className="flex h-1 bg-gradient-to-l from-altrose"></div>
-          <p className="flex text-lg w-1/2 m-5">
-            I am <br />
-            and I'm building this website as mobile first. <br />
-            Cookie lollipop dragée apple pie pie. Cookie biscuit chupa chups
-            bonbon marzipan tootsie roll. Muffin cake shortbread chocolate
-            biscuit. I love danish muffin tootsie roll caramels I love. Biscuit
-            wafer I love lollipop sweet roll sugar plum. <br />
-            donut.
-            <br />
-            somebody ate my berliner.
-          </p>
+          <p className="flex text-lg w-1/2 m-5">{t('landing:introduction')}</p>
         </div>
       </section>
       {/*hero desktop*/}
@@ -28,22 +66,11 @@ const Home: NextPage = () => {
         <div className="flex flex-col justify-center items-center bubbly rounded-full w-[55vw] h-[55vw] mt-16 relative">
           {/*pic*/}
           <div className="absolute rounded-full opacity-90 right-8 top-6 bg-devil h-64 w-64 bg-no-repeat bg-center"></div>
-          <h1 className="text-4xl">hello</h1>
+          <h1 className="text-4xl">{t('landing:header')}</h1>
           <div className="h-1 w-[40vw] bg-gradient-to-l from-paleblue  via-altrose "></div>
-          <p className="flex text-lg w-3/4 m-5">
-            I am Inga
-            <br />
-            and I'm building this website as mobile first. <br />
-            Cookie lollipop dragée apple pie pie. Cookie biscuit chupa chups
-            bonbon marzipan tootsie roll. Muffin cake shortbread chocolate
-            biscuit. I love danish muffin tootsie roll caramels I love. Biscuit
-            wafer I love lollipop sweet roll sugar plum. <br />
-            donut.
-            <br />
-            somebody ate my berliner.
-          </p>
+          <p className="flex text-lg w-3/4 m-5">{t('landing:introduction')}</p>
           <button className="flex self-center justify-center items-center bg-lightaltrose rounded-md w-48 h-16 m-4 text-lg text-altrose hover:bg-lightblue hover:text-lightaltrose">
-            CONTACT ME
+            {t('landing:contactbutton')}
           </button>
         </div>
       </section>
@@ -52,26 +79,23 @@ const Home: NextPage = () => {
         <section className="flex flex-col justify-center items-center">
           <a href="./Projects.html">
             <div className="flex flex-col bg-darkaltrose p-4 my-8 mx-2 w-80 rounded-lg">
-              <p className="leading-6 text-lg text-center">PROJECTS</p>
-              <p className="text-2xl underline">battleships</p>
-              <p>
-                27.02.2022
-                <br />
-                It’s finally playable! We added some soundeffects in the
-                saturday session. Still working on design issues.
+              <p className="leading-6 text-lg text-center">
+                {t('projects:cardheader')}
               </p>
+              <p className="text-2xl underline">{t('projects:heading')}</p>
+              <p>{t('projects:date')}</p>
+              <p>{t('projects:description')}</p>
             </div>
           </a>
           <Link href="/blog">
             <a>
               <div className="flex flex-col bg-darkaltrose p-4 mx-2 w-80 rounded-md">
-                <p className="leading-6 text-lg text-center">BLOG</p>
-                <p className="text-2xl underline">tailwind</p>
-                <p>
-                  03.03.2022
-                  <br />i like tailwind. tailwind is shit. i love tailwind. i
-                  hate tailwind. i guess it's okay. actually it's pretty nice..
+                <p className="leading-6 text-lg text-center">
+                  {t('blog:cardheader')}
                 </p>
+                <p className="text-2xl underline">{t('blog:heading')}</p>
+                <p>{t('blog:date')}</p>
+                <p>{t('blog:description')}</p>
               </div>
             </a>
           </Link>

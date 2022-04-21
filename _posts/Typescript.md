@@ -1,13 +1,3 @@
----
-title: 'Typescript'
-author: 'Inga feat. Bassem'
-date: 'xx.xx.2022'
-image: 'img/ts.jpeg'
-tags:
-  - javascript
-  - syntax
----
-
 #syntax #JavaScript
 
 # Type Script

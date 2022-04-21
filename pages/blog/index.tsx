@@ -5,20 +5,10 @@ import matter from 'gray-matter'
 import { useState } from 'react'
 
 // need to have this name!
-export const getStaticProps: GetStaticProps = () => {
-  const files = fs.readdirSync('_posts')
-  const posts = files.map((fileName) => {
-    // remove .md from filenames to create dynamic part of url
-    const slug = fileName.replace('.md', '')
-    //get file contents
-    const readFile = fs.readFileSync(`_posts/${fileName}`, 'utf-8')
-    // parsing markdown and just grabbing the frontmatter
-    const { data: frontMatter } = matter(readFile)
-    return {
-      slug,
-      frontMatter,
-    } // builds object with keys
-  })
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await fetch('http://localhost:8000/feed').then((res) =>
+    res.json()
+  )
   return {
     props: {
       posts,
@@ -26,35 +16,23 @@ export const getStaticProps: GetStaticProps = () => {
   }
 }
 
-export interface FrontMatter {
+export type Post = {
+  id: number
   title: string
-  author: string
-  date: string
-  image: string
-  tags: string[]
+  author: {
+    id: number
+    name: string
+    email: string
+  }
+  content: string
 }
 
 interface Props {
-  posts: {
-    slug: string
-    frontMatter: FrontMatter
-  }[]
+  posts: Post[]
 }
 
 const Blog = ({ posts }: Props) => {
   const [query, setQuery] = useState('')
-
-  const filterPosts = (post: typeof posts[0]) => {
-    if (!query) {
-      return true
-    }
-    return (
-      post.frontMatter.tags
-        .map((tag) => tag.toLowerCase())
-        .includes(query.toLowerCase()) ||
-      post.frontMatter.author.toLowerCase().includes(query.toLowerCase())
-    )
-  }
 
   return (
     <div className="h-screen space-y-10">
@@ -71,17 +49,12 @@ const Blog = ({ posts }: Props) => {
       </div>
       <div className="flex space-x-5 justify-center">
         {posts.map((post) => (
-          <Link href={`/blog/${post.slug}`}>
+          <Link key={post.id} href={`/blog/${post.title}`}>
             <a className="mt-4">
               <div className="flex flex-col border border-lightblue rounded-md max-w-xs">
-                <img src={`${post.frontMatter.image}`} className="mb-2" />
-                <h1 className="text-2xl">{post.frontMatter.title}</h1>
-                <p>{post.frontMatter.author}</p>
-                <div className="flex space-x-2">
-                  {post.frontMatter.tags.map((tag) => (
-                    <div className="bg-darkaltrose rounded-md p-1">{tag}</div>
-                  ))}
-                </div>
+                <h1 className="text-2xl">{post.title}</h1>
+                <p>{post.author.name}</p>
+                <p>{post.author.email}</p>
               </div>
             </a>
           </Link>

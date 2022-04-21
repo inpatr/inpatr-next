@@ -5,28 +5,35 @@ specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': 17.0.4
   '@types/react': 17.0.38
+  '@types/react-i18next': ^8.1.0
   autoprefixer: ^10.4.0
   axios: ^0.26.1
   gray-matter: ^4.0.3
   i18next: ^21.6.14
+  i18next-browser-languagedetector: ^6.1.4
   markdown-it: ^12.3.2
   next: latest
+  next-sitemap: ^2.5.19
   postcss: ^8.4.5
   prettier: ^2.5.1
   prettier-plugin-tailwindcss: ^0.1.1
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-i18next: ^11.16.2
   tailwindcss: ^3.0.7
   typescript: 4.5.4
 
 dependencies:
+  '@types/react-i18next': 8.1.0_f94be6b4dd1edc1d8608af374b838bd6
   axios: 0.26.1
   gray-matter: 4.0.3
   i18next: 21.6.14
+  i18next-browser-languagedetector: 6.1.4
   markdown-it: 12.3.2
   next: 12.1.4_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-i18next: 11.16.2_f94be6b4dd1edc1d8608af374b838bd6
 
 devDependencies:
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
@@ -34,6 +41,7 @@ devDependencies:
   '@types/node': 17.0.4
   '@types/react': 17.0.38
   autoprefixer: 10.4.4_postcss@8.4.12
+  next-sitemap: 2.5.19_next@12.1.4
   postcss: 8.4.12
   prettier: 2.6.2
   prettier-plugin-tailwindcss: 0.1.8_prettier@2.6.2
@@ -69,6 +77,10 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.9
     dev: false
+
+  /@corex/deepmerge/2.6.148:
+    resolution: {integrity: sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==}
+    dev: true
 
   /@next/env/12.1.4:
     resolution: {integrity: sha512-7gQwotJDKnfMxxXd8xJ2vsX5AzyDxO3zou0+QOXX8/unypA6icw5+wf6A62yKZ6qQ4UZHHxS68pb6UV+wNneXg==}
@@ -240,6 +252,18 @@ packages:
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
     dev: true
+
+  /@types/react-i18next/8.1.0_f94be6b4dd1edc1d8608af374b838bd6:
+    resolution: {integrity: sha512-d4xhcjX5b3roNMObRNMfb1HinHQlQLPo8xlDj60dnHeeAw2bBymR2cy/l1giJpHzo/ZFgSvgVUvIWr4kCrenCg==}
+    deprecated: This is a stub types definition. react-i18next provides its own type definitions, so you do not need this installed.
+    dependencies:
+      react-i18next: 11.16.2_f94be6b4dd1edc1d8608af374b838bd6
+    transitivePeerDependencies:
+      - i18next
+      - react
+      - react-dom
+      - react-native
+    dev: false
 
   /@types/react/17.0.38:
     resolution: {integrity: sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==}
@@ -593,6 +617,22 @@ packages:
       function-bind: 1.1.1
     dev: true
 
+  /html-escaper/2.0.2:
+    resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
+    dev: false
+
+  /html-parse-stringify/3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
+  /i18next-browser-languagedetector/6.1.4:
+    resolution: {integrity: sha512-wukWnFeU7rKIWT66VU5i8I+3Zc4wReGcuDK2+kuFhtoxBRGWGdvYI9UQmqNL/yQH1KogWwh+xGEaIPH8V/i2Zg==}
+    dependencies:
+      '@babel/runtime': 7.17.9
+    dev: false
+
   /i18next/21.6.14:
     resolution: {integrity: sha512-XL6WyD+xlwQwbieXRlXhKWoLb/rkch50/rA+vl6untHnJ+aYnkQ0YDZciTWE78PPhOpbi2gR0LTJCJpiAhA+uQ==}
     dependencies:
@@ -736,6 +776,18 @@ packages:
     resolution: {integrity: sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /next-sitemap/2.5.19_next@12.1.4:
+    resolution: {integrity: sha512-skcjmCO9ZEDxUmfaSz9FGWt/TRhXvfwvJzuMj8NRCd46vhMNzsLu+2lq2T4KJp5kNYEp3ISajtVNxJ+iegcDDg==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 2.6.148
+      minimist: 1.2.6
+      next: 12.1.4_react-dom@17.0.2+react@17.0.2
+    dev: true
 
   /next/12.1.4_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-DA4g97BM4Z0nKtDvCTm58RxdvoQyYzeg0AeVbh0N4Y/D8ELrNu47lQeEgRGF8hV4eQ+Sal90zxrJQQG/mPQ8CQ==}
@@ -939,6 +991,27 @@ packages:
       scheduler: 0.20.2
     dev: false
 
+  /react-i18next/11.16.2_f94be6b4dd1edc1d8608af374b838bd6:
+    resolution: {integrity: sha512-1iuZduvARUelL5ux663FvIoDZExwFO+9QtRAAt4uvs1/aun4cUZt8XBrVg7iiDgNls9cOSORAhE7Ri5KA9RMvg==}
+    peerDependencies:
+      i18next: '>= 19.0.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.17.9
+      html-escaper: 2.0.2
+      html-parse-stringify: 3.0.1
+      i18next: 21.6.14
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /react/17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
     engines: {node: '>=0.10.0'}
@@ -1099,6 +1172,11 @@ packages:
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
     dev: true
+
+  /void-elements/3.1.0:
+    resolution: {integrity: sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
